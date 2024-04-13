@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { app } from "../firebase";
+import { app } from "../firebase/firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 

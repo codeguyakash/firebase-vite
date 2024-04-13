@@ -1,20 +1,28 @@
 import { getDatabase, ref, set, onValue } from "firebase/database";
-import { app } from "../firebase";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { app } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 
 const db = getDatabase(app);
+const firestore = getFirestore(app);
 const userObject = localStorage.getItem("user");
 const user = JSON.parse(userObject);
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const writeData = () => {
-    set(ref(db, "users/codeguyakash"), {
-      id: 2,
-      name: "ramesh",
-      age: 23,
-      role: "Super User",
+  const writeData = async () => {
+    const result = await addDoc(collection(firestore, "skills"), {
+      name: "JavaScript",
+      rate: 9,
     });
+    console.log(result);
+
+    // set(ref(db, "users/codeguyakash"), {
+    //   id: 2,
+    //   name: "ramesh",
+    //   age: 23,
+    //   role: "Super User",
+    // });
   };
   const readData = () => {
     onValue(ref(db, "users/codeguyakash"), (snapshot) => {

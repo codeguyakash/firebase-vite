@@ -1,5 +1,5 @@
 import { getDatabase, ref, set, onValue } from "firebase/database";
-import { app } from "../firebase";
+import { app } from "../firebase/firebase";
 import Signup from "./Signup";
 import SignInPage from "./Signin";
 import { useEffect, useState } from "react";
@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const db = getDatabase(app);
 
 const Home = () => {
-  const [isUser, setIsUser] = useState(false);
+  const [isUser, setIsUser] = useState(true);
   useEffect(() => {
     const user = localStorage.getItem("user");
     user ? setIsUser(true) : setIsUser(false);
