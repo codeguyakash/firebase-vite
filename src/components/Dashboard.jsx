@@ -17,12 +17,12 @@ const Dashboard = () => {
     });
     console.log(result);
 
-    // set(ref(db, "users/codeguyakash"), {
-    //   id: 2,
-    //   name: "ramesh",
-    //   age: 23,
-    //   role: "Super User",
-    // });
+    set(ref(db, "users/codeguyakash"), {
+      id: 2,
+      name: "ramesh",
+      age: 23,
+      role: "Super User",
+    });
   };
   const readData = () => {
     onValue(ref(db, "users/codeguyakash"), (snapshot) => {
